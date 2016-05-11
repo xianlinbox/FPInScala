@@ -1,7 +1,6 @@
 [debug] Other repositories:
 [debug] Default repositories:
 [debug] Using inline dependencies specified in Scala.
-[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
 [debug] :: resolving dependencies :: default#fpinscala$sbt_2.11;1.0
 [debug] 	confs: [default]
 [debug] 	validate = true
@@ -733,9 +732,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.8!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.8!apply-macro.jar
-[debug] :: resolution report :: resolve 524ms :: artifacts dl 27ms
+[debug] :: resolution report :: resolve 799ms :: artifacts dl 24ms
 [debug] 	report for default#fpinscala$sbt_2.11;1.0 default produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sbt_2.11-default.xml
-[debug] 	resolve done (524ms resolve - 27ms download)
+[debug] 	resolve done (799ms resolve - 24ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: default#fpinscala$sources_2.11;1.0
 [debug] 	confs: [default]
@@ -1116,30 +1115,8 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_8_2;0.13.8!precompiled-2_8_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_2;0.13.8!precompiled-2_9_2.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-sbt#precompiled-2_9_3;0.13.8!precompiled-2_9_3.jar(src)
-[debug] 		tried https://repo.typesafe.com/typesafe/ivy-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.6.0/srcs/sbt-idea-sources.jar
-[debug] CLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.6.0/srcs/sbt-idea-sources.jar
-[debug] 		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.6.0/srcs/sbt-idea-sources.jar
-[debug] CLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.6.0/srcs/sbt-idea-sources.jar
-[debug] 		tried /Users/xnliu/.ivy2/local/com.github.mpeltonen/sbt-idea/scala_2.10/sbt_0.13/1.6.0/srcs/sbt-idea-sources.jar
-[debug] 		tried https://jcenter.bintray.com/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar
-[debug] CLIENT ERROR: Not Found url=https://jcenter.bintray.com/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar
-[debug] 		tried https://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar
-[info] downloading https://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar ...
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar
-[debug] 	public: downloading https://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar.sha1
-[debug] sha1 OK for https://repo1.maven.org/maven2/com/github/mpeltonen/sbt-idea_2.10_0.13/1.6.0/sbt-idea-1.6.0-sources.jar
-[info] 	[SUCCESSFUL ] com.github.mpeltonen#sbt-idea;1.6.0!sbt-idea.jar(src) (3047ms)
-[debug] 		tried https://repo.typesafe.com/typesafe/ivy-releases/commons-io/commons-io/2.0.1/srcs/commons-io-sources.jar
-[debug] CLIENT ERROR: Not Found url=https://repo.typesafe.com/typesafe/ivy-releases/commons-io/commons-io/2.0.1/srcs/commons-io-sources.jar
-[debug] 		tried https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/commons-io/commons-io/2.0.1/srcs/commons-io-sources.jar
-[debug] CLIENT ERROR: Not Found url=https://repo.scala-sbt.org/scalasbt/sbt-plugin-releases/commons-io/commons-io/2.0.1/srcs/commons-io-sources.jar
-[debug] 		tried /Users/xnliu/.ivy2/local/commons-io/commons-io/2.0.1/srcs/commons-io-sources.jar
-[debug] 		tried https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar
-[info] downloading https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar ...
-[debug] 	jcenter: downloading https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar
-[debug] 	jcenter: downloading https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar.sha1
-[debug] sha1 OK for https://jcenter.bintray.com/commons-io/commons-io/2.0.1/commons-io-2.0.1-sources.jar
-[info] 	[SUCCESSFUL ] commons-io#commons-io;2.0.1!commons-io.jar(src) (7604ms)
-[debug] :: resolution report :: resolve 165ms :: artifacts dl 22581ms
+[debug] 	[NOT REQUIRED] com.github.mpeltonen#sbt-idea;1.6.0!sbt-idea.jar(src)
+[debug] 	[NOT REQUIRED] commons-io#commons-io;2.0.1!commons-io.jar(src)
+[debug] :: resolution report :: resolve 103ms :: artifacts dl 22ms
 [debug] 	report for default#fpinscala$sources_2.11;1.0 default produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-default.xml
-[debug] 	resolve done (165ms resolve - 22581ms download)
+[debug] 	resolve done (103ms resolve - 22ms download)

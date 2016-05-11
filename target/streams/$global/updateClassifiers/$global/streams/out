@@ -9,7 +9,7 @@
 [debug] == resolving dependencies for default#fpinscala$sources_2.11;1.0 [compile]
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang#scala-library;2.11.8 [compile->default(compile)]
 [info] Resolving org.scala-lang#scala-library;2.11.8 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@cc89a3
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@372dcb2
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-library;2.11.8
 [debug] 	found org.scala-lang#scala-library;2.11.8 in sbt-chain
 [debug] 	[2.11.8] org.scala-lang#scala-library;2.11.8
@@ -45,7 +45,7 @@
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang#scala-library;2.11.8 [test->master]
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->default(compile)]
 [info] Resolving org.scalatest#scalatest_2.11;2.2.6 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@7d3b18d2
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@4e9203d8
 [debug] sbt-chain: module revision found in cache: org.scalatest#scalatest_2.11;2.2.6
 [debug] 	found org.scalatest#scalatest_2.11;2.2.6 in sbt-chain
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->runtime]
@@ -53,7 +53,7 @@
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scalatest#scalatest_2.11;2.2.6 [test->master]
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang#scala-reflect;2.11.7 [test->default(compile)]
 [info] Resolving org.scala-lang#scala-reflect;2.11.7 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@31ec2633
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@3c17bc96
 [debug] sbt-chain: module revision found in cache: org.scala-lang#scala-reflect;2.11.7
 [debug] 	found org.scala-lang#scala-reflect;2.11.7 in sbt-chain
 [debug] 	[2.11.7] org.scala-lang#scala-reflect;2.11.7
@@ -62,7 +62,7 @@
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang#scala-reflect;2.11.7 [test->master]
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.2 [test->default(compile)]
 [info] Resolving org.scala-lang.modules#scala-xml_2.11;1.0.2 ...
-[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@68187e10
+[debug] sbt-chain: Checking cache for: sbt.ivyint.MergedDescriptors@6acb2b6c
 [debug] sbt-chain: module revision found in cache: org.scala-lang.modules#scala-xml_2.11;1.0.2
 [debug] 	found org.scala-lang.modules#scala-xml_2.11;1.0.2 in sbt-chain
 [debug] == resolving dependencies default#fpinscala$sources_2.11;1.0->org.scala-lang.modules#scala-xml_2.11;1.0.2 [test->runtime]
@@ -219,7 +219,7 @@
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-xml_2.11;1.0.4!scala-xml_2.11.jar(src)
 [debug] 	[NOT REQUIRED] org.scala-lang.modules#scala-parser-combinators_2.11;1.0.4!scala-parser-combinators_2.11.jar(src)
 [debug] 	[NOT REQUIRED] jline#jline;2.12.1!jline.jar(src)
-[debug] :: resolution report :: resolve 26ms :: artifacts dl 7ms
+[debug] :: resolution report :: resolve 85ms :: artifacts dl 7ms
 [debug] 	report for default#fpinscala$sources_2.11;1.0 compile produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-compile.xml
 [debug] 	report for default#fpinscala$sources_2.11;1.0 runtime produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-runtime.xml
 [debug] 	report for default#fpinscala$sources_2.11;1.0 test produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-test.xml
@@ -233,4 +233,4 @@
 [debug] 	report for default#fpinscala$sources_2.11;1.0 docs produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-docs.xml
 [debug] 	report for default#fpinscala$sources_2.11;1.0 pom produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-pom.xml
 [debug] 	report for default#fpinscala$sources_2.11;1.0 scala-tool produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/target/resolution-cache/reports/default-fpinscala$sources_2.11-scala-tool.xml
-[debug] 	resolve done (26ms resolve - 7ms download)
+[debug] 	resolve done (85ms resolve - 7ms download)
