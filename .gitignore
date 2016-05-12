@@ -14,6 +14,11 @@
 out/
 target/
 
+# dependencies
+lib/
+lib_managed/
+
+
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
