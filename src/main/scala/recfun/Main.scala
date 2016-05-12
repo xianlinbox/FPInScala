@@ -1,5 +1,7 @@
 package recfun
 
+import scala.swing.Container
+
 object Main {
   def main(args: Array[String]) {
     println("Pascal's Triangle")
@@ -23,7 +25,6 @@ object Main {
         currentRow(i) = 1
 
         for (j <- 1 until i) {
-          println("j:" + j + " i:" + i)
           currentRow(j) = triangle(i - 1)(j) + triangle(i - 1)(j - 1)
         }
         triangle(i) = currentRow
@@ -38,7 +39,16 @@ object Main {
   /**
     * Exercise 2
     */
-  def balance(chars: List[Char]): Boolean = true
+  def balance(chars: List[Char]): Boolean = {
+
+    def recursiveBalance(chars: List[Char], open: Int): Boolean = {
+      if (chars.isEmpty) open == 0
+      else if (chars.head == '(') recursiveBalance(chars.tail, open + 1)
+      else if (chars.head == ')') open > 0 && recursiveBalance(chars.tail, open - 1)
+      else recursiveBalance(chars.tail, open)
+    }
+    recursiveBalance(chars, 0)
+  }
 
   /**
     * Exercise 3
