@@ -11,8 +11,9 @@
 ## Plugin-specific files:
 # IntelliJ
 .idea/
-out/
-target/
+out/**
+target/**
+project/target/**
 
 # dependencies
 lib/
