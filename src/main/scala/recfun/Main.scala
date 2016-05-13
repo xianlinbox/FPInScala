@@ -1,7 +1,5 @@
 package recfun
 
-import scala.swing.Container
-
 object Main {
   def main(args: Array[String]) {
     println("Pascal's Triangle")
@@ -53,5 +51,14 @@ object Main {
   /**
     * Exercise 3
     */
-  def countChange(money: Int, coins: List[Int]): Int = 0
+  def countChange(money: Int, coins: List[Int]): Int = {
+    def loop(m: Int, c: List[Int]): Int = {
+      if (m == 0) 1
+      else if (m < 0) 0
+      else if (c.isEmpty && m >= 1) 0
+      else loop(m, c.tail) + loop(m - c.head, c)
+    }
+
+    loop(money, coins)
+  }
 }

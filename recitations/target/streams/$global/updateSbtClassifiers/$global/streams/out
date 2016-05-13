@@ -8,11 +8,11 @@
 [debug] resolving dependencies for configuration 'default'
 [debug] == resolving dependencies for recitations#recitations$sbt_2.10;0.1-SNAPSHOT [default]
 [debug] == resolving dependencies recitations#recitations$sbt_2.10;0.1-SNAPSHOT->org.scala-sbt#sbt;0.13.7 [default->default(compile)]
+[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
+[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
+[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
 [info] Resolving org.scala-sbt#sbt;0.13.7 ...
 [debug] sbt-chain: Checking cache for: dependency: org.scala-sbt#sbt;0.13.7 {default=[default(compile)]}
-[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
-[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
-[debug] no default cache defined: set to /Users/xnliu/.ivy2/cache
 [debug] sbt-chain: module revision found in cache: org.scala-sbt#sbt;0.13.7
 [debug] 	found org.scala-sbt#sbt;0.13.7 in sbt-chain
 [debug] == resolving dependencies org.scala-sbt#sbt;0.13.7->org.scala-lang#scala-library;2.10.4 [compile->default(compile)]
@@ -1055,9 +1055,9 @@
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-agent;0.13.7!test-agent.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#test-interface;1.0!test-interface.jar
 [debug] 	[NOT REQUIRED] org.scala-sbt#apply-macro;0.13.7!apply-macro.jar
-[debug] :: resolution report :: resolve 1094ms :: artifacts dl 33ms
+[debug] :: resolution report :: resolve 1225ms :: artifacts dl 56ms
 [debug] 	report for recitations#recitations$sbt_2.10;0.1-SNAPSHOT default produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/recitations/target/resolution-cache/reports/recitations-recitations$sbt_2.10-default.xml
-[debug] 	resolve done (1094ms resolve - 33ms download)
+[debug] 	resolve done (1225ms resolve - 56ms download)
 [debug] Using inline dependencies specified in Scala.
 [debug] :: resolving dependencies :: recitations#recitations$sources_2.10;0.1-SNAPSHOT
 [debug] 	confs: [default]
@@ -1579,6 +1579,6 @@
 [debug] 	[NOT REQUIRED] org.apache.commons#commons-lang3;3.1!commons-lang3.jar(src)
 [debug] 	[NOT REQUIRED] org.scalaz#scalaz-core_2.10;7.0.2!scalaz-core_2.10.jar(src)
 [debug] 	[NOT REQUIRED] org.scalaz#scalaz-effect_2.10;7.0.2!scalaz-effect_2.10.jar(src)
-[debug] :: resolution report :: resolve 119ms :: artifacts dl 49ms
+[debug] :: resolution report :: resolve 130ms :: artifacts dl 50ms
 [debug] 	report for recitations#recitations$sources_2.10;0.1-SNAPSHOT default produced in /Users/xnliu/Documents/workspace/scala_workspace/FPInScala/recitations/target/resolution-cache/reports/recitations-recitations$sources_2.10-default.xml
-[debug] 	resolve done (119ms resolve - 49ms download)
+[debug] 	resolve done (130ms resolve - 50ms download)

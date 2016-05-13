@@ -4,7 +4,7 @@
 		module="recitations$sources_2.10"
 		revision="0.1-SNAPSHOT"
 		status="integration"
-		publication="20160513092414"
+		publication="20160513213258"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>

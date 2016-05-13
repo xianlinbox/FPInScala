@@ -17,7 +17,7 @@ class CountChangeSuite extends FunSuite {
   }
 
   test("countChange: no pennies") {
-    assert(countChange(301,List(5,10,20,50,100,200,500)) === 0)
+    assert(countChange(301,List(5,10,20,50,100,500,200)) === 0)
   }
 
   test("countChange: unsorted CHF") {
