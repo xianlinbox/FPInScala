@@ -132,4 +132,13 @@ class FunSetSuite extends FunSuite {
     }
   }
 
+  test("filter should remove elements which met") {
+    new TestSets {
+      val us1 = union(s1, s2)
+      val d = filter(us1, (x:Int) => x ==1)
+
+      assert(contains(d, 1), "Union 1")
+      assert(!contains(d, 2), "Union 2")
+    }
+  }
 }
