@@ -135,10 +135,19 @@ class FunSetSuite extends FunSuite {
   test("filter should remove elements which met") {
     new TestSets {
       val us1 = union(s1, s2)
-      val d = filter(us1, (x:Int) => x ==1)
+      val d = filter(us1, (x: Int) => x == 1)
 
       assert(contains(d, 1), "Union 1")
       assert(!contains(d, 2), "Union 2")
     }
   }
+
+  test("forAll should check if all elements met the prediction") {
+    val inSet = (x: Int) => -1000 <= x && x <= 1000
+    val d = forall(inSet, (x: Int) => x > 0)
+
+    assert(!forall(inSet, (x: Int) => x > 0))
+    assert(forall(inSet, inSet))
+  }
+
 }
