@@ -150,4 +150,12 @@ class FunSetSuite extends FunSuite {
     assert(forall(inSet, inSet))
   }
 
+  test(" exists should check if exist one elements met the prediction") {
+    val inSet = (x: Int) => -1000 <= x && x <= 1000
+    val d = forall(inSet, (x: Int) => x > 0)
+
+    assert(exists(inSet, (x: Int) => x > 0))
+    assert(!exists(inSet, (x: Int) => x > 1000))
+  }
+
 }
