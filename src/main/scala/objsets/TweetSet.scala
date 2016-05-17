@@ -56,7 +56,7 @@ abstract class TweetSet {
     * and be implemented in the subclasses?
     */
   def union(that: TweetSet): TweetSet = {
-    filterAcc(x => this.contains(x),that.filterAcc(x=>that.contains(x),new Empty()))
+    filterAcc(x => this.contains(x), that.filterAcc(x => that.contains(x), new Empty()))
   }
 
   /**
@@ -68,7 +68,9 @@ abstract class TweetSet {
     * Question: Should we implment this method here, or should it remain abstract
     * and be implemented in the subclasses?
     */
-  def mostRetweeted: Tweet = ???
+  def mostRetweeted: Tweet = mostRetweetedAcc(new Tweet("tmp", "tmp", 0))
+
+  def mostRetweetedAcc(most: Tweet): Tweet
 
   /**
     * Returns a list containing all tweets of this set, sorted by retweet count
@@ -112,6 +114,8 @@ abstract class TweetSet {
 class Empty extends TweetSet {
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = acc
 
+  def mostRetweetedAcc(most: Tweet): Tweet = most
+
   /**
     * The following methods are already implemented
     */
@@ -129,8 +133,17 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
 
   def filterAcc(p: Tweet => Boolean, acc: TweetSet): TweetSet = {
     if (p(elem)) right.filterAcc(p, left.filterAcc(p, acc.incl(elem)))
-    else right.filterAcc(p,left.filterAcc(p,acc))
+    else right.filterAcc(p, left.filterAcc(p, acc))
   }
+
+  def mostRetweetedAcc(most: Tweet): Tweet = {
+    println(most)
+    println("left:" + left)
+    println("right:" + right)
+    if (most.retweets < elem.retweets) right.mostRetweetedAcc(left.mostRetweetedAcc(elem))
+    else right.mostRetweetedAcc(left.mostRetweetedAcc(most))
+  }
+
 
   /**
     * The following methods are already implemented
