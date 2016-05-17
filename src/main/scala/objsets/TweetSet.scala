@@ -56,7 +56,7 @@ abstract class TweetSet {
     * and be implemented in the subclasses?
     */
   def union(that: TweetSet): TweetSet = {
-    filterAcc(x => this.contains(x), that.filterAcc(x => that.contains(x), new Empty()))
+    filterAcc(x => this.contains(x), that.filterAcc(x => that.contains(x), new Empty))
   }
 
   /**
@@ -139,11 +139,12 @@ class NonEmpty(elem: Tweet, left: TweetSet, right: TweetSet) extends TweetSet {
   }
 
   def mostRetweetedAcc(most: Tweet): Tweet = {
-    if (most.retweets < elem.retweets) right.mostRetweetedAcc(left.mostRetweetedAcc(elem))
+    if (most.retweets <= elem.retweets) right.mostRetweetedAcc(left.mostRetweetedAcc(elem))
     else right.mostRetweetedAcc(left.mostRetweetedAcc(most))
   }
 
   def descendingByRetweet: TweetList = new Cons(mostRetweeted, remove(mostRetweeted).descendingByRetweet)
+
   /**
     * The following methods are already implemented
     */
@@ -204,10 +205,10 @@ object GoogleVsApple {
   val apple = List("ios", "iOS", "iphone", "iPhone", "ipad", "iPad")
 
   lazy val googleTweets: TweetSet = TweetReader.allTweets.filter((tweet) => {
-      google.exists((keyword) => {
-        tweet.text.contains(keyword)
-      })
+    google.exists((keyword) => {
+      tweet.text.contains(keyword)
     })
+  })
   lazy val appleTweets: TweetSet = TweetReader.allTweets.filter((tweet) => {
     apple.exists((keyword) => {
       tweet.text.contains(keyword)
@@ -218,7 +219,7 @@ object GoogleVsApple {
     * A list of all tweets mentioning a keyword from either apple or google,
     * sorted by the number of retweets.
     */
-  lazy val trending: TweetList = ???
+  lazy val trending: TweetList = googleTweets.union(appleTweets).descendingByRetweet
 }
 
 object Main extends App {
