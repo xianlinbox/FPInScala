@@ -75,7 +75,19 @@ object Huffman {
     * println("integer is  : "+ theInt)
     * }
     */
-  def times(chars: List[Char]): List[(Char, Int)] = ???
+  def times(chars: List[Char]): List[(Char, Int)] = {
+    def reduceAcc(chars: List[Char], result:List[(Char, Int)]):List[(Char, Int)] = {
+      if(chars.isEmpty) result
+      else {
+        val currentChar = chars.head
+        val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == chars.head)
+        val count = if (filteredItem.isEmpty) 1 else filteredItem(0)._2 + 1
+        reduceAcc(chars.tail, (currentChar,count)::result.filterNot((p) => p._1 == chars.head))
+      }
+    }
+
+    reduceAcc(chars, List())
+  }
 
   /**
     * Returns a list of `Leaf` nodes for a given frequency table `freqs`.
