@@ -35,6 +35,7 @@ object Huffman {
     case Fork(left, right, chars, weight) => chars
     case Leaf(leaf, weight) => List(leaf)
   }
+
   def makeCodeTree(left: CodeTree, right: CodeTree) =
     Fork(left, right, chars(left) ::: chars(right), weight(left) + weight(right))
 
@@ -76,13 +77,13 @@ object Huffman {
     * }
     */
   def times(chars: List[Char]): List[(Char, Int)] = {
-    def reduceAcc(chars: List[Char], result:List[(Char, Int)]):List[(Char, Int)] = {
-      if(chars.isEmpty) result
+    def reduceAcc(chars: List[Char], result: List[(Char, Int)]): List[(Char, Int)] = {
+      if (chars.isEmpty) result
       else {
         val currentChar = chars.head
         val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == chars.head)
         val count = if (filteredItem.isEmpty) 1 else filteredItem(0)._2 + 1
-        reduceAcc(chars.tail, (currentChar,count)::result.filterNot((p) => p._1 == chars.head))
+        reduceAcc(chars.tail, (currentChar, count) :: result.filterNot((p) => p._1 == chars.head))
       }
     }
 
@@ -96,7 +97,17 @@ object Huffman {
     * head of the list should have the smallest weight), where the weight
     * of a leaf is the frequency of the character.
     */
-  def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = ???
+  def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = {
+    def makeLeafAcc(freqs: List[(Char, Int)], result: List[Leaf]): List[Leaf] = {
+      if (freqs.isEmpty) result.sortWith((leaf1, leaf2) => leaf1.weight < leaf2.weight)
+      else {
+        val head = freqs.head
+        makeLeafAcc(freqs.tail, Leaf(head._1, head._2) :: result)
+      }
+    }
+
+    makeLeafAcc(freqs, List())
+  }
 
   /**
     * Checks whether the list `trees` contains only one single code tree.
