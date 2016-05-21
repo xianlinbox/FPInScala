@@ -112,7 +112,7 @@ object Huffman {
   /**
     * Checks whether the list `trees` contains only one single code tree.
     */
-  def singleton(trees: List[CodeTree]): Boolean = ???
+  def singleton(trees: List[CodeTree]): Boolean = trees.length == 1
 
   /**
     * The parameter `trees` of this function is a list of code trees ordered
@@ -126,7 +126,15 @@ object Huffman {
     * If `trees` is a list of less than two elements, that list should be returned
     * unchanged.
     */
-  def combine(trees: List[CodeTree]): List[CodeTree] = ???
+  def combine(trees: List[CodeTree]): List[CodeTree] = {
+    if (singleton(trees)) trees
+    else {
+      val first = trees.head
+      val second = trees.tail.head
+      val combinedCodeTree = new Fork(first, second, chars(first):::chars(second), weight(first) + weight(second))
+      (combinedCodeTree::trees.tail.tail).sortWith((left, right) => weight(left) < weight(right))
+    }
+  }
 
   /**
     * This function will be called in the following way:
