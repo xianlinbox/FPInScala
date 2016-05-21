@@ -99,7 +99,7 @@ object Huffman {
     */
   def makeOrderedLeafList(freqs: List[(Char, Int)]): List[Leaf] = {
     def makeLeafAcc(freqs: List[(Char, Int)], result: List[Leaf]): List[Leaf] = {
-      if (freqs.isEmpty) result.sortWith((leaf1, leaf2) => leaf1.weight < leaf2.weight)
+      if (freqs.isEmpty) result sortBy {weight}
       else {
         val head = freqs.head
         makeLeafAcc(freqs.tail, Leaf(head._1, head._2) :: result)
@@ -126,14 +126,9 @@ object Huffman {
     * If `trees` is a list of less than two elements, that list should be returned
     * unchanged.
     */
-  def combine(trees: List[CodeTree]): List[CodeTree] = {
-    if (singleton(trees)) trees
-    else {
-      val first = trees.head
-      val second = trees.tail.head
-      val combinedCodeTree = new Fork(first, second, chars(first):::chars(second), weight(first) + weight(second))
-      (combinedCodeTree::trees.tail.tail).sortWith((left, right) => weight(left) < weight(right))
-    }
+  def combine(trees: List[CodeTree]): List[CodeTree] = trees match {
+    case Nil | _::Nil => trees
+    case x::y::xs => makeCodeTree(x,y)::xs sortBy {weight}
   }
 
   /**
