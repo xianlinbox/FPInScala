@@ -61,6 +61,18 @@ class HuffmanSuite extends FunSuite {
     assert(combine(leaflist) === List(Leaf('x', 5), Fork(Leaf('e', 2), Leaf('t', 4), List('e', 't'), 6)))
   }
 
+  test("decodeSecret") {
+    println(decodedSecret.toString())
+  }
+
+  test("decode") {
+    new TestTrees {
+      assert(decode(t1, List(0)) == List('a'))
+      assert(decode(t1, List(1)) == List('b'))
+      assert(decode(t1, List(1, 0)) == List('b', 'a'))
+      assert(decode(t1, List(0, 1)) == List('a', 'b'))
+    }
+  }
 
   test("decode and encode a very short text should be identity") {
     new TestTrees {
@@ -68,4 +80,12 @@ class HuffmanSuite extends FunSuite {
     }
   }
 
+  test("encode") {
+    new TestTrees {
+      assert(encode(t1)("a".toList) == List(0))
+      assert(encode(t1)("b".toList) == List(1))
+      assert(encode(t1)("ab".toList) == List(0, 1))
+      assert(encode(t1)("ba".toList) == List(1, 0))
+    }
+  }
 }
