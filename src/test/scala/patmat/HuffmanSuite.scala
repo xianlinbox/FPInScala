@@ -88,4 +88,10 @@ class HuffmanSuite extends FunSuite {
       assert(encode(t1)("ba".toList) == List(1, 0))
     }
   }
+
+  test("codebits") {
+    val table = List(('a', List(0)), ('b', List(1)))
+    assert(codeBits(table)('a') == List(0))
+    assert(codeBits(table)('b') == List(1))
+  }
 }
