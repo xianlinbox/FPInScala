@@ -94,4 +94,14 @@ class HuffmanSuite extends FunSuite {
     assert(codeBits(table)('a') == List(0))
     assert(codeBits(table)('b') == List(1))
   }
+
+  test("quick encode") {
+    new TestTrees {
+      assert(quickEncode(t1)("a".toList) == List(0))
+      assert(quickEncode(t1)("b".toList) == List(1))
+      assert(quickEncode(t1)("ab".toList) == List(0, 1))
+      assert(quickEncode(t1)("ba".toList) == List(1, 0))
+    }
+  }
+
 }
