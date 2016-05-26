@@ -36,18 +36,13 @@ object Anagrams {
     * Note: you must use `groupBy` to implement this method!
     */
   def wordOccurrences(w: Word): Occurrences = {
-
-    def reduceAcc(chars: List[Char], result: List[(Char, Int)]): List[(Char, Int)] = {
-      if (chars.isEmpty) result
-      else {
-        val currentChar = chars.head
-        val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == chars.head)
-        val count = if (filteredItem.isEmpty) 1 else filteredItem(0)._2 + 1
-        reduceAcc(chars.tail, (currentChar, count) :: result.filterNot((p) => p._1 == chars.head))
-      }
+    def addChar(result:List[(Char, Int)], c: Char) = {
+      val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == c)
+      val count = if (filteredItem.isEmpty) 1 else filteredItem(0)._2 + 1
+      (c, count) :: result.filterNot((p) => p._1 == c)
     }
 
-    reduceAcc(w.toLowerCase.toList, List()).sortBy(item => item._1)
+    (w.toLowerCase.toList.foldLeft(List[(Char, Int)]())(addChar)).sortBy(item => item._1)
   }
 
   /** Converts a sentence into its character occurrence list. */
