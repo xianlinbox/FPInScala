@@ -46,7 +46,14 @@ object Anagrams {
   }
 
   /** Converts a sentence into its character occurrence list. */
-  def sentenceOccurrences(s: Sentence): Occurrences = ???
+  def sentenceOccurrences(s: Sentence): Occurrences = {
+    def addTuple(result:List[(Char, Int)], t: (Char, Int)) = {
+      val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == t._1)
+      val count = if (filteredItem.isEmpty) t._2 else filteredItem(0)._2 + t._2
+      (t._1, count) :: result.filterNot((p) => p._1 == t._1)
+    }
+    s.flatMap(wordOccurrences).foldLeft(List[(Char, Int)]())(addTuple).sortBy(item => item._1)
+  }
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
     * the words that have that occurrence count.
