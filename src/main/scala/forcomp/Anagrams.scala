@@ -35,25 +35,14 @@ object Anagrams {
     *
     * Note: you must use `groupBy` to implement this method!
     */
-  def wordOccurrences(w: Word): Occurrences = {
-    def addChar(result:List[(Char, Int)], c: Char) = {
-      val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == c)
-      val count = if (filteredItem.isEmpty) 1 else filteredItem(0)._2 + 1
-      (c, count) :: result.filterNot((p) => p._1 == c)
-    }
+  def wordOccurrences(w: Word): Occurrences =
+    w.toLowerCase.groupBy(x=>x).toList.map(item => (item._1, item._2.length)) sorted
 
-    (w.toLowerCase.toList.foldLeft(List[(Char, Int)]())(addChar)).sortBy(item => item._1)
-  }
 
   /** Converts a sentence into its character occurrence list. */
-  def sentenceOccurrences(s: Sentence): Occurrences = {
-    def addTuple(result:List[(Char, Int)], t: (Char, Int)) = {
-      val filteredItem: List[(Char, Int)] = result.filter((p) => p._1 == t._1)
-      val count = if (filteredItem.isEmpty) t._2 else filteredItem(0)._2 + t._2
-      (t._1, count) :: result.filterNot((p) => p._1 == t._1)
-    }
-    s.flatMap(wordOccurrences).foldLeft(List[(Char, Int)]())(addTuple).sortBy(item => item._1)
-  }
+  def sentenceOccurrences(s: Sentence): Occurrences =
+    s.flatMap(wordOccurrences).groupBy(_._1).toList.map(item => (item._1, item._2.map(_._2).sum)).sorted
+  
 
   /** The `dictionaryByOccurrences` is a `Map` from different occurrences to a sequence of all
     * the words that have that occurrence count.
