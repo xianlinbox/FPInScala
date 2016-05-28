@@ -2,6 +2,8 @@ package forcomp
 
 import common._
 
+import scala.collection.GenTraversableOnce
+
 object Anagrams {
 
   /** A word is simply a `String`. */
@@ -91,10 +93,19 @@ object Anagrams {
     def oneOccurrenceCombinations(item: (Char, Int)): List[Occurrences] =
       (1 to item._2).toList.map(count => List((item._1, count)))
 
+    def occurrencesCombineHead(occurrencesForTail: List[Occurrences], head: (Char, Int)): List[Occurrences] =
+      head match {
+        case (c, 1) => occurrencesForTail map((c,1) :: _)
+        case (c, n) => (occurrencesForTail map((c,n) :: _)) ++ occurrencesCombineHead(occurrencesForTail, (c,n-1))
+      }
+
     occurrences match {
       case Nil => List(List())
       case x :: Nil => oneOccurrenceCombinations(x) ::: combinations(Nil)
-      case t :: ts => oneOccurrenceCombinations(t) ::: combinations(ts)
+      case t :: ts => {
+        val occurrencesForTail = combinations(ts)
+        occurrencesForTail ++ occurrencesCombineHead(occurrencesForTail, t)
+      }
     }
   }
 
