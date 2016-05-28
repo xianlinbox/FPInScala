@@ -8,18 +8,18 @@ import org.scalatest.junit.JUnitRunner
 import Anagrams._
 
 @RunWith(classOf[JUnitRunner])
-class AnagramsSuite extends FunSuite  {
+class AnagramsSuite extends FunSuite {
 
-	test("wordOccurrences: abcd") {
-		assert(wordOccurrences("abcd") === List(('a', 1), ('b', 1), ('c', 1), ('d', 1)))
-	}
+  test("wordOccurrences: abcd") {
+    assert(wordOccurrences("abcd") === List(('a', 1), ('b', 1), ('c', 1), ('d', 1)))
+  }
 
-	test("wordOccurrences: Robert") {
+  test("wordOccurrences: Robert") {
     assert(wordOccurrences("Robert") === List(('b', 1), ('e', 1), ('o', 1), ('r', 2), ('t', 1)))
   }
 
 
-	test("sentenceOccurrences: abcd e") {
+  test("sentenceOccurrences: abcd e") {
     assert(sentenceOccurrences(List("abcd", "e")) === List(('a', 1), ('b', 1), ('c', 1), ('d', 1), ('e', 1)))
   }
 
@@ -29,22 +29,22 @@ class AnagramsSuite extends FunSuite  {
   }
 
 
-	test("dictionaryByOccurrences.get: eat") {
+  test("dictionaryByOccurrences.get: eat") {
     assert(dictionaryByOccurrences.get(List(('a', 1), ('e', 1), ('t', 1))).map(_.toSet) === Some(Set("ate", "eat", "tea")))
   }
 
 
-	test("word anagrams: married") {
+  test("word anagrams: married") {
     assert(wordAnagrams("married").toSet === Set("married", "admirer"))
   }
 
-	test("word anagrams: player") {
+  test("word anagrams: player") {
     assert(wordAnagrams("player").toSet === Set("parley", "pearly", "player", "replay"))
   }
 
 
 
-	test("subtract: lard - r") {
+  test("subtract: lard - r") {
     val lard = List(('a', 1), ('d', 1), ('l', 1), ('r', 1))
     val r = List(('r', 1))
     val lad = List(('a', 1), ('d', 1), ('l', 1))
@@ -52,11 +52,15 @@ class AnagramsSuite extends FunSuite  {
   }
 
 
-	test("combinations: []") {
+  test("combinations: []") {
     assert(combinations(Nil) === List(Nil))
   }
 
-	test("combinations: abba") {
+  test("combinations: [('a', 2)]") {
+    assert(combinations(List(('a', 2))) === List(List(('a', 1)), List(('a', 2)), List()))
+  }
+
+  test("combinations: abba") {
     val abba = List(('a', 2), ('b', 2))
     val abbacomb = List(
       List(),
@@ -73,12 +77,12 @@ class AnagramsSuite extends FunSuite  {
   }
 
 
-	test("sentence anagrams: []") {
+  test("sentence anagrams: []") {
     val sentence = List()
     assert(sentenceAnagrams(sentence) === List(Nil))
   }
 
-	test("sentence anagrams: Linux rulez") {
+  test("sentence anagrams: Linux rulez") {
     val sentence = List("Linux", "rulez")
     val anas = List(
       List("Rex", "Lin", "Zulu"),
