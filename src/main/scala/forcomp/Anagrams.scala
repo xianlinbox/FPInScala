@@ -119,7 +119,9 @@ object Anagrams {
     * Note: the resulting value is an occurrence - meaning it is sorted
     * and has no zero-entries.
     */
-  def subtract(x: Occurrences, y: Occurrences): Occurrences = ???
+  def subtract(x: Occurrences, y: Occurrences): Occurrences =
+    (((x::: (y map (i => (i._1, -i._2)))).groupBy(_._1) mapValues (v => (v map (_._2)).sum)) filter (_._2!=0) toList) sorted
+
 
   /** Returns a list of all anagram sentences of the given sentence.
     *
