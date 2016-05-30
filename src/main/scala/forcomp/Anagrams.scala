@@ -120,7 +120,7 @@ object Anagrams {
     * and has no zero-entries.
     */
   def subtract(x: Occurrences, y: Occurrences): Occurrences =
-    (((x::: (y map (i => (i._1, -i._2)))).groupBy(_._1) mapValues (v => (v map (_._2)).sum)) filter (_._2!=0) toList) sorted
+    (((x ::: (y map (i => (i._1, -i._2)))).groupBy(_._1) mapValues (v => (v map (_._2)).sum)) filter (_._2 != 0) toList) sorted
 
 
   /** Returns a list of all anagram sentences of the given sentence.
@@ -163,5 +163,17 @@ object Anagrams {
     *
     * Note: There is only one anagram of an empty sentence.
     */
-  def sentenceAnagrams(sentence: Sentence): List[Sentence] = ???
+  def sentenceAnagrams(sentence: Sentence): List[Sentence] = {
+    def iter(occurrences: Occurrences): List[Sentence] = {
+      if (occurrences.isEmpty) List(Nil)
+      else for {
+        combination <- combinations(occurrences)
+        word <- dictionaryByOccurrences getOrElse(combination, Nil)
+        sentence <- iter(subtract(occurrences, wordOccurrences(word)))
+        if !combination.isEmpty
+      } yield word :: sentence
+    }
+
+    iter(sentenceOccurrences(sentence))
+  }
 }
