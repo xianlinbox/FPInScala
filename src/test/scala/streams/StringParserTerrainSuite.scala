@@ -8,10 +8,7 @@ import org.scalatest.junit.JUnitRunner
 class StringParserTerrainSuite extends FunSuite {
 
   trait Level1 extends GameDef with StringParserTerrain{
-    val level =
-      """ooo-------
-        |oSoooo----
-        |oT-""".stripMargin
+    val level =""
 
     val levelVector = Vector(Vector('o', 'o','o'), Vector('o', 'o','S', 'o'), Vector('o', 'T'))
   }
@@ -40,9 +37,9 @@ class StringParserTerrainSuite extends FunSuite {
     }
   }
 
-  test("findChar: S => Pos(1,1)") {
+  test("findChar: S => Pos(1,2)") {
     new Level1 {
-      assert(findChar('S',levelVector) == Pos(1,1))
+      assert(findChar('S',levelVector) == Pos(1,2))
     }
   }
 
