@@ -39,4 +39,16 @@ class StringParserTerrainSuite extends FunSuite {
       assert(!terrainFunction(levelVector)(Pos(4,0)))
     }
   }
+
+  test("findChar: S => Pos(1,1)") {
+    new Level1 {
+      assert(findChar('S',levelVector) == Pos(1,1))
+    }
+  }
+
+  test("findChar: T => Pos(2,1)") {
+    new Level1 {
+      assert(findChar('T',levelVector) == Pos(2,1))
+    }
+  }
 }
