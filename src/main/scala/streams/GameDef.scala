@@ -88,7 +88,7 @@ trait GameDef {
     * This function returns the block at the start position of
     * the game.
     */
-  def startBlock: Block = ???
+  def startBlock: Block = Block(startPos, startPos)
 
 
   /**
@@ -157,5 +157,4 @@ trait GameDef {
       */
     def isLegal: Boolean = terrain(b1) && terrain(b2)
   }
-
 }
