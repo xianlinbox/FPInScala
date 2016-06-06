@@ -54,8 +54,11 @@ trait StringParserTerrain extends GameDef {
     */
   def terrainFunction(levelVector: Vector[Vector[Char]]): Pos => Boolean =
     (pos) => {
-      val isLegalPos = pos.x >= 0 && pos.y >= 0
-      isLegalPos && levelVector.length > pos.x && levelVector(0).length > pos.y && levelVector(pos.x)(pos.y) != '-'
+      try {
+        levelVector(pos.x)(pos.y) != '-'
+      } catch {
+        case e: IndexOutOfBoundsException => false
+      }
     }
 
 
